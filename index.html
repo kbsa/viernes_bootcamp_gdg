@@ -7,8 +7,6 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 	<link rel="stylesheet" type="text/css" href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/dist/css/sb-admin-2.css">
-
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 <body>
 	<div id="wrapper">
@@ -73,18 +71,18 @@
 						<div class="panel-body">
 								<div class="row">
 									<div class="col-md-12">
-										<form>
-											<div class="form-group">
+										<!-- <form>
+											<div class="form-group"> -->
 												<!-- El atributo se usa para enlzar al id del input -->
-												<label for="descripcion">Descripcion del evento</label>
+												<!-- <label for="descripcion">Descripcion del evento</label>
 												<input id="descripcion" class="form-control" type="" name="">
-											</div>
-											<div class="form-group">
+											</div> -->
+											<!-- <div class="form-group"> -->
 												<!-- El atributo se usa para enlzar al id del input -->
-												<label for="Local">Local</label>
-												<input id="Local" class="form-control" type="" name="">
-												<select name="" id="" class="form-control"></select>
-											</div>
+												<!-- <label for="Local">Local</label>
+												<input id="Local" class="form-control" type="" name=""> -->
+												<!-- <select name="" id="" class="form-control"></select> -->
+											<!-- </div>
 											<div class="form-group">
 												<div class="checkbox">
 													Edad
@@ -105,7 +103,26 @@
 													</label>
 												</div>
 											</div>
-											<button type="submit" class="btn primary"></button>
+											<button type="submit" class="btn btn-primary">Enviar</button>
+										</form> -->
+										<form id="formEvento">
+											<div class="form-group">
+												<label for="nombre">Nombre:</label>
+												<input type="text" class="form-control" id="nombre" placeholder="Introduce tu nombre">
+												<div class="form-group">
+													<label for="ciudad">Ciudad:</label>
+													<select class="form-control" id="ciudad" name="ciudad">
+														<option selected="">CDE</option>
+														<option >Asuncion</option>
+													</select>
+													<!-- <input type="text" class="form-control" id="ciudad" placeholder="Introduce la ciudad"> -->
+												</div>
+											
+												<label for="descripcion">Descripcion:</label>
+												<input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Introduce una descripcion">
+												<button class="btn btn-success" type="button" onclick="enviarDatos()">Enviar</button>
+
+											</div>
 										</form>
 									</div>
 								</div>
@@ -116,5 +133,39 @@
 		</main>
 	</div>
 	
+	<script type="text/javascript">
+		//console.log(document)
+		//console.log(nombre)
+
+		function enviarDatos() {
+			console.log("Datos Enviados")
+			//Una forma de recuperar los datos
+			
+			/*var nombre = document.getElementById("nombre").value
+			console.log("Nombre: ", nombre)
+			var ciudad = document.getElementById("ciudad").value
+			console.log("Ciudad: ", ciudad)
+			var descripcion = document.getElementById("descripcion").value
+			console.log("Descripcion: ", descripcion)*/
+
+			var nombre = document.getElementById("nombre").value
+			console.log("Nombre: ", nombre)
+			var indexCiudad = document.getElementById("formEvento").elements.namedItem("ciudad").selectedIndex
+			var ciudad = document.getElementById("formEvento").elements.namedItem("ciudad").options[indexCiudad].value
+			console.log("Ciudad: ", ciudad)
+
+			console.log("---------------------------")
+			//console.log(document.getElementByClassName("form-group"))
+		}
+	</script>
+
+
+
+
+
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
 </body>
 </html>
